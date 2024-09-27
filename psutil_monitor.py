@@ -1,12 +1,6 @@
 import psutil
 import os
-# from textual.app import App, ComposeResult
-# from textual.containers import Container, Horizontal
-# from textual.widgets import Header, Footer, Static, Button
-# from survey import routines
-# import survey
-# value = survey.routines.input('ping? ')
-# print(f'Answered {value}.')
+import textual
 
 # HOME PATH
 
@@ -52,11 +46,6 @@ def get_disk_usage():
 # tuple with index 2 return total free.
 # tuple with index 3 return %.
 
-# welcome message
-
-print("welcome to the pymonitor program, please choose an option")
-opts = ["cpu_percent", "disk_usage"]
-print(opts)
 
 # TODO:
 # disk_usage % 🏁
@@ -71,9 +60,14 @@ print(opts)
 # print(f'Answered {value}.')
 
 # standard library version:
-user_input = input()
 # user_input = "disk_usage"
 
+# welcome message
+
+print("welcome to the pymonitor program, please choose an option")
+opts = ["cpu_percent", "disk_usage"]
+print(opts)
+user_input = input()
 if user_input == "cpu_percent":
     get_cpu_percent()
 elif user_input == "disk_usage":
