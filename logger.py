@@ -17,7 +17,7 @@ def logger_setup():
             file.write(write_string)
     if check_file == True:
         with open(log_path, mode="a") as file:
-            write_string = f"log file initialized: {date_time}"
+            write_string = f"program initialized: {date_time}"
             file.write("\n")
             file.write(write_string)
         print("logfile initialized")
