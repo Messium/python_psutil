@@ -13,4 +13,9 @@ in pkgs.mkShell {
       python-pkgs.survey
     ]))
   ];
+  shellHook = ''
+    python_dir=$(whereis python)
+    export PYTHON="/nix/store/bsch7ipzrgpx1a9gbgi50x3ys2cqf37x-python3-3.11.9-env/bin/python"
+    # export PYTHON=echo $python_dir
+  '';
 }
