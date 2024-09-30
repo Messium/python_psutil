@@ -1,6 +1,12 @@
 import psutil
 import os
-import textual
+# from textual.app import App, ComposeResult
+# from textual.containers import Container, Horizontal
+# from textual.widgets import Header, Footer, Static, Button
+# from survey import routines
+# import survey
+# value = survey.routines.input('ping? ')
+# print(f'Answered {value}.')
 
 # HOME PATH
 
@@ -46,6 +52,11 @@ def get_disk_usage():
 # tuple with index 2 return total free.
 # tuple with index 3 return %.
 
+# welcome message
+
+print("welcome to the pymonitor program, please choose an option")
+opts = ["cpu_percent", "disk_usage"]
+print(opts)
 
 # TODO:
 # disk_usage % 🏁
@@ -60,28 +71,26 @@ def get_disk_usage():
 # print(f'Answered {value}.')
 
 # standard library version:
+# user_input = input()
 # user_input = "disk_usage"
 
-# welcome message
-
-print("welcome to the pymonitor program, please choose an option")
-opts = ["cpu_percent", "disk_usage"]
-print(opts)
-user_input = input()
-if user_input == "cpu_percent":
-    get_cpu_percent()
-elif user_input == "disk_usage":
-    disk_usage_params = input("välj ett alternativ 1. total, 2. used or 3. free")
-    if disk_usage_params == "total":
-        print(get_disk_usage()[1])
-    elif disk_usage_params == "used":
-        print(get_disk_usage()[2])
-    elif disk_usage_params == "free":
-        print(get_disk_usage()[3])
-    else:
-        print("felaktig error försök igen")
-    # # Conversion to kilobytes, megabytes, and gigabytes
-    # file_size_kb = get_disk_usage()[1] / 1024
-    # file_size_mb = file_size_kb / 1024
-    # file_size_gb = file_size_mb / 1024
-    # print(file_size_mb)
+while True:
+    print("choose cpu_percent or disk_usage")
+    user_input = input()
+    if user_input == "cpu_percent":
+        get_cpu_percent()
+    elif user_input == "disk_usage":
+        disk_usage_params = input("välj ett alternativ 1. total, 2. used or 3. free")
+        if disk_usage_params == "total":
+            print(get_disk_usage()[1])
+        elif disk_usage_params == "used":
+            print(get_disk_usage()[2])
+        elif disk_usage_params == "free":
+            print(get_disk_usage()[3])
+        else:
+            print("felaktig error försök igen")
+        # # Conversion to kilobytes, megabytes, and gigabytes
+        # file_size_kb = get_disk_usage()[1] / 1024
+        # file_size_mb = file_size_kb / 1024
+        # file_size_gb = file_size_mb / 1024
+        # print(file_size_mb)
