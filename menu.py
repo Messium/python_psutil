@@ -1,5 +1,7 @@
 from logger import logger_setup
 import monitor
+import color_codes
+import alarm
 import psutil
 import os
 
@@ -14,6 +16,39 @@ def get_home_path():
 
 def get_disk_usage():
     return psutil.disk_usage(get_home_path())
+
+def pointer():
+    return ">"
+
+def menu_startup():
+    while True:
+        options = [
+            "Starta övervakning",
+            "Lista aktiv övervakning",
+            "Skapa larm",
+            "Visa larm",
+            "Starta övervakningsläge"
+        ]
+        welcome_message = "hello and welcome choose an option:"
+        print(pointer(), welcome_message)
+        for num, item in enumerate(options, 1):
+            print(pointer(), str(num), str(item))
+        user_input = input()
+        if user_input == "1":
+            monitor.monitor_start()
+        elif user_input == "2":
+            monitor.monitor_list_active()
+        elif user_input == "3":
+            alarm.alarm_()
+        elif user_input == "4":
+            alarm.alarm_list_active()
+        elif user_input == "5":
+            monitor.monitor_monitorize()
+        elif user_input == "exit":
+            break
+        else:
+            print("bad input")
+
 
 def menu():
     while True:
@@ -40,5 +75,6 @@ def menu():
         else:
             print("felaktig input error försök igen")
 
-logger_setup()
-menu()
+# logger_setup()
+# menu()
+menu_startup()

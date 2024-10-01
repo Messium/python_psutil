@@ -2,7 +2,6 @@ import os.path
 from datetime import datetime
 
 
-
 def logger_setup():
     now = datetime.now()
     date_time = now.strftime("%d/%m/%Y %H:%M:%S")
@@ -21,4 +20,5 @@ def logger_setup():
             file.write("\n")
             file.write(write_string)
         print("logfile initialized")
+
 
