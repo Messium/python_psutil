@@ -1,5 +1,6 @@
 from logger import logger_setup
 import monitor
+from utils import pointer
 import color_codes
 import alarm
 import psutil
@@ -16,9 +17,6 @@ def get_home_path():
 
 def get_disk_usage():
     return psutil.disk_usage(get_home_path())
-
-def pointer():
-    return ">"
 
 def menu_startup():
     while True:
@@ -39,7 +37,7 @@ def menu_startup():
         elif user_input == "2":
             monitor.monitor_list_active()
         elif user_input == "3":
-            alarm.alarm_()
+            alarm.alarm_create()
         elif user_input == "4":
             alarm.alarm_list_active()
         elif user_input == "5":

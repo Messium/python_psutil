@@ -1,23 +1,32 @@
-# setup alarms init
+from utils import pointer
+from menu import menu_startup
 
-alarms = {}
-alarms["minnesanvändning"] = []
-alarms["cpuanvändning"] = []
-alarms["diskanvändning"] = []
+class Alarms:
+    def __init__(self):
+        self.alarms = {}
+        self.alarms["minnesanvändning"] = []
+        self.alarms["cpuanvändning"] = []
+        self.alarms["diskanvändning"] = []
+    KEY_MIN = "minnesanvändning" # KEY namnet är motiverat för det är en dictionary.
+    KEY_CPU = "cpuanvändning" # KEY namnet är motiverat för det är en dictionary.
+    KEY_DISK = "diskanvändning" # KEY namnet är motiverat för det är en dictionary.
+    options = [KEY_MIN, KEY_CPU, KEY_DISK, "gå tillbaka till huvudmenyn"]
 
+alarms = Alarms() # instance of Alarms object that inherit all dictionaries and alises
+# that is KEY_n that I defined earlier.
 # setup alarms init end
+print(alarms.alarms)
 
-def pointer():
-    return "👉"
 
 def alarm_create():
     while True:
-        options = [
-            "cpuanvändning",
-            "minnesanvändning",
-            "diskanvändning",
-            "gå tillbaka till huvudmeny",
-        ]
+        options = alarms.options
+        # options = [
+        #     "cpuanvändning",
+        #     "minnesanvändning",
+        #     "diskanvändning",
+        #     "gå tillbaka till huvudmeny",
+        # ]
 
         message = "Create an alarm for:"
         print(message)
@@ -37,11 +46,12 @@ def alarm_create():
             # print("desired %?")
             user_input = input()
             ## REVIEW:
-            try:
-                val = int(user_input)
-            except ValueError:
-                print("That's not an int!")
-            if user_input in alarms["minnesanvändning"]:
+            # try:
+            #     val = int(user_input)
+            # except ValueError:
+            #     print("That's not an int!")
+            # if user_input in alarms["minnesanvändning"]:
+            if user_input in alarms.alarms[alarms.KEY_MIN]:
                 print("already activated")
                 continue
             if int(user_input) > 100:
@@ -50,8 +60,8 @@ def alarm_create():
             if int(user_input) <= 0:
                 print("please choose a number between 1-100")
             else:
-                alarms["minnesanvändning"].append(user_input)
-            print("activated:", alarms["minnesanvändning"])
+                alarms.alarms[alarms.KEY_MIN].append(user_input)
+                print("activated:", alarms.alarms[alarms.KEY_MIN])
             # if not alarms["minnesanvändning"]:
             #     print("empty list")
 
@@ -73,8 +83,10 @@ def alarm_create():
             alarms[options[2]] = user_input
         elif user_input == "4":
             print("start alarm för", options[3])
-        else:
-            print("do something else")
+        elif user_input == "return":
+            menu_startup()
+        # else:
+        #     print("do something else")
             # return to main meny
 
 def alarm_remove():

@@ -44,7 +44,6 @@ class color_table:
     CWHITEBG2  = '\33[107m'
 
     REDGREEN = '\x1b[32;41;1;4m' # underline bold, red, green,
-    REDGREEN2 = '\033[32;41;1;4m' # save as above
 
 catppuccin_hex_colors = {
     "rosewater": "#f5e0dc",
@@ -76,4 +75,4 @@ catppuccin_hex_colors = {
 }
 
 
-print(color_table.PINK, "Hello, World!")
+print(color_table.REDGREEN, "Hello, World!")
