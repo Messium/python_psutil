@@ -1,16 +1,33 @@
-from utils import pointer
+from utils import Utils
 from menu import menu_startup
+
+pointer = Utils.pointer()
 
 class Alarms:
     def __init__(self):
         self.alarms = {}
-        self.alarms["minnesanvändning"] = []
-        self.alarms["cpuanvändning"] = []
-        self.alarms["diskanvändning"] = []
-    KEY_MIN = "minnesanvändning" # KEY namnet är motiverat för det är en dictionary.
-    KEY_CPU = "cpuanvändning" # KEY namnet är motiverat för det är en dictionary.
-    KEY_DISK = "diskanvändning" # KEY namnet är motiverat för det är en dictionary.
-    options = [KEY_MIN, KEY_CPU, KEY_DISK, "gå tillbaka till huvudmenyn"]
+        self.alarms["minnesanvändning"] = [] # instansattribut
+        self.alarms["cpuanvändning"] = [] # instansattribut
+        self.alarms["diskanvändning"] = [] # instansattribut
+    KEY_MIN = "minnesanvändning" # KEY namnet är motiverat för det är en dictionary. # klassattribut
+    KEY_CPU = "cpuanvändning" # KEY namnet är motiverat för det är en dictionary. # klassattribut
+    KEY_DISK = "diskanvändning" # KEY namnet är motiverat för det är en dictionary. # klassattribut
+    options = [KEY_MIN, KEY_CPU, KEY_DISK, "gå tillbaka till huvudmenyn"] # klassattribut
+    # TODO: make this the menu options as a class to be used in menu, alarms and monitor
+
+    @classmethod
+    def options_menu(cls):
+        # TODO:
+        options = alarms.options
+        message = "Create an alarm for:"
+        print(message)
+        for num, item in enumerate(options, 1):
+            print(pointer, str(num), str(item))
+        user_input = input()
+
+
+class menu_options():
+    pass # create menu options with message: "Create an alarm for:"
 
 alarms = Alarms() # instance of Alarms object that inherit all dictionaries and alises
 # that is KEY_n that I defined earlier.
@@ -21,17 +38,11 @@ print(alarms.alarms)
 def alarm_create():
     while True:
         options = alarms.options
-        # options = [
-        #     "cpuanvändning",
-        #     "minnesanvändning",
-        #     "diskanvändning",
-        #     "gå tillbaka till huvudmeny",
-        # ]
 
         message = "Create an alarm for:"
         print(message)
         for num, item in enumerate(options, 1):
-            print(pointer(), str(num), str(item))
+            print(pointer, str(num), str(item))
 
 
         user_input = input()
@@ -40,7 +51,7 @@ def alarm_create():
             print("start alarm för", options[0])
             print("desired %?")
             user_input = input()
-            alarms[options[0]] = user_input
+            alarms[options[0]] = user_input # options
         elif user_input == "2":
             # print("start alarm för", options[1])
             # print("desired %?")

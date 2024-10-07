@@ -1,10 +1,14 @@
-from logger import logger_setup
-import monitor
-from utils import pointer
-import color_codes
-import alarm
-import psutil
 import os
+
+# import color_codes
+import alarm
+import monitor
+import psutil
+from logger import logger_setup
+from utils import Utils
+
+pointer = Utils.pointer() # Objekt av klass metoden pointer från Utils klassen.
+
 
 # HOME PATH
 def get_home_path():
@@ -28,9 +32,9 @@ def menu_startup():
             "Starta övervakningsläge"
         ]
         welcome_message = "hello and welcome choose an option:"
-        print(pointer(), welcome_message)
+        print(pointer, welcome_message)
         for num, item in enumerate(options, 1):
-            print(pointer(), str(num), str(item))
+            print(pointer, str(num), str(item))
         user_input = input()
         if user_input == "1":
             monitor.monitor_start()
@@ -73,6 +77,5 @@ def menu():
         else:
             print("felaktig input error försök igen")
 
-# logger_setup()
-# menu()
+logger_setup()
 menu_startup()
