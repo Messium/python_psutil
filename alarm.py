@@ -1,11 +1,11 @@
 from utils import Utils
 from menu import menu_startup
 
-pointer = Utils.pointer()
+pointer = Utils.pointer() # Objekt av klass metoden pointer() från Utils klassen.
 
 class Alarms:
     def __init__(self):
-        self.alarms = {}
+        self.alarms = {} # instansattribut
         self.alarms["minnesanvändning"] = [] # instansattribut
         self.alarms["cpuanvändning"] = [] # instansattribut
         self.alarms["diskanvändning"] = [] # instansattribut
@@ -18,13 +18,12 @@ class Alarms:
     @classmethod
     def options_menu(cls):
         # TODO:
-        options = alarms.options
+        options = Alarms.options
         message = "Create an alarm for:"
         print(message)
         for num, item in enumerate(options, 1):
             print(pointer, str(num), str(item))
         user_input = input()
-
 
 class menu_options():
     pass # create menu options with message: "Create an alarm for:"
@@ -37,16 +36,7 @@ print(alarms.alarms)
 
 def alarm_create():
     while True:
-        options = alarms.options
-
-        message = "Create an alarm for:"
-        print(message)
-        for num, item in enumerate(options, 1):
-            print(pointer, str(num), str(item))
-
-
-        user_input = input()
-
+        user_input = Alarms.options_menu()
         if user_input == "1":
             print("start alarm för", options[0])
             print("desired %?")
@@ -109,4 +99,6 @@ def alarm_list_active():
 
     pass
 
-alarm_create()
+
+user_input = Alarms.options_menu()
+# alarm_create()

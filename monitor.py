@@ -1,4 +1,7 @@
-import menu
+from menu import menu_startup
+from utils import Utils
+
+pointer = Utils.pointer() # Objekt av klass metoden pointer från Utils klassen.
 
 monitor_started = []
 

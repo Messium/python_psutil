@@ -7,7 +7,7 @@ import psutil
 from logger import logger_setup
 from utils import Utils
 
-pointer = Utils.pointer() # Objekt av klass metoden pointer från Utils klassen.
+pointer = Utils.pointer() # Objekt av klass metoden pointer() från Utils klassen.
 
 
 # HOME PATH
