@@ -1,9 +1,38 @@
 from menu import menu_startup
+import psutil
 from utils import Utils
 
 pointer = Utils.pointer() # Objekt av klass metoden pointer från Utils klassen.
 
 monitor_started = []
+
+class Monitor:
+
+    monitor = False
+
+
+    @classmethod
+    def monitor_start(cls):
+    # Startar övervakning av CPU användning, minnesanvändning och diskanvändning.
+    # Notera alltså att ingen övervakning ska starta automatiskt vid programstart
+        print("monitor started")
+        monitor = True
+
+
+    @classmethod
+    def monitor_mode(cls):
+    # Listar aktiv övervakning som är aktiv samt nuvarande övervakningsstatus.
+    # Har man inte startat övervakningen ska en text visas som informerar användaren om att ingen övervakning är aktiv. Annars visas övervakningen, t.ex:
+        if monitor == True:
+            print("print all monitor stuff ")
+        else:
+            print("please activate monitor first")
+
+
+    @classmethod
+    def monitorize(cls):
+        pass
+
 
 def monitor_start():
     while True:
@@ -38,6 +67,6 @@ def monitor_list_active():
         print(monitor_started)
 
 def monitor_monitorize():
-    pass
+    print(psutil.virtual_memory()[2], "%")
 
 monitor_start()
