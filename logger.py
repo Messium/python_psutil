@@ -10,6 +10,7 @@ class Logger():
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
         # TODO: add try except
+        # TODO: surpless checking?
         try:
             log_path = './log.txt'
             check_file = os.path.isfile(log_path)
@@ -17,6 +18,7 @@ class Logger():
                 with open(log_path, mode="x") as file:
                     write_string = f"log file created at: {date_time}"
                     file.write(write_string)
+                print(f"log file created at {date_time}")
             if check_file == True:
                 with open(log_path, mode="a") as file:
                     write_string = f"program initialized: {date_time}"
