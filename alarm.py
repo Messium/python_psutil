@@ -56,10 +56,8 @@ class Alarms:
                 if user_input in Alarms.alarms_dict[f"{Alarms.KEY_MIN}"]:
                     print("already activated")
                     continue
-                if int(user_input) > 100:
-                    print("please choose a number between 1-100")
-                    continue
-                if int(user_input) <= 0:
+                if int(user_input) > 100 or int(user_input) <= 0:
+                    # TODO: condense it further
                     print("please choose a number between 1-100")
                     continue
                 else:
