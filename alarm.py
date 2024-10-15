@@ -1,35 +1,42 @@
-from utils import Utils
 from menu import menu_startup
+from utils import Utils
+
 # import menu
 
 main_menu = menu_startup()
-pointer = Utils.pointer() # Objekt av klass metoden pointer() från Utils klassen.
+# Objekt av klass metoden pointer() från Utils klassen.
+pointer = Utils.pointer()
+
 
 class Alarms:
     def __init__(self):
-        self.alarms = {} # instansattribut
-        self.alarms["minnesanvändning"] = [] # instansattribut
-        self.alarms["cpuanvändning"] = [] # instansattribut
-        self.alarms["diskanvändning"] = [] # instansattribut
+        self.alarms = {}  # instansattribut
+        self.alarms["minnesanvändning"] = []  # instansattribut
+        self.alarms["cpuanvändning"] = []  # instansattribut
+        self.alarms["diskanvändning"] = []  # instansattribut
     pointer = Utils.pointer()
-    KEY_MIN = "minnesanvändning" # KEY namnet är motiverat för det är en dictionary. # klassattribut
-    KEY_CPU = "cpuanvändning" # KEY namnet är motiverat för det är en dictionary. # klassattribut
-    KEY_DISK = "diskanvändning" # KEY namnet är motiverat för det är en dictionary. # klassattribut
-    alarms_dict = {} # intialization of alarm dictionary.
-    alarms_dict[KEY_MIN] = [] # create key with empty list
-    alarms_dict[KEY_CPU] = [] # create key with empty list
-    alarms_dict[KEY_DISK] = [] # create key with empty list
+    # KEY namnet är motiverat för det är en dictionary. # klassattribut
+    KEY_MIN = "minnesanvändning"
+    # KEY namnet är motiverat för det är en dictionary. # klassattribut
+    KEY_CPU = "cpuanvändning"
+    # KEY namnet är motiverat för det är en dictionary. # klassattribut
+    KEY_DISK = "diskanvändning"
+    alarms_dict = {}  # intialization of alarm dictionary.
+    alarms_dict[KEY_MIN] = []  # create key with empty list
+    alarms_dict[KEY_CPU] = []  # create key with empty list
+    alarms_dict[KEY_DISK] = []  # create key with empty list
     KEY_OPTIONS = [KEY_MIN, KEY_CPU, KEY_DISK]
-    options = [KEY_MIN, KEY_CPU, KEY_DISK, "gå tillbaka till huvudmenyn", "exit application"] # klassattribut
+    options = [KEY_MIN, KEY_CPU, KEY_DISK,
+               "gå tillbaka till huvudmenyn", "exit application"]  # klassattribut
     # options = [KEY_MIN, KEY_CPU, KEY_DISK, "gå tillbaka till huvudmenyn", "exit application"] # klassattribut
     # TODO: make this the menu options as a class to be used in menu, alarms and monitor
 
     # @classmethod
     # def options_menu(cls):
-    @classmethod # decorator
+    @classmethod  # decorator
     def options_menu(cls):
         # TODO:
-        options = Alarms.options # klassattributet options från Alarms.
+        options = Alarms.options  # klassattributet options från Alarms.
         # HELP: Hur får jag instansattributet self.alarms till den här metoden?
         # alarms = Alarms.__init__ # how to get self.alarms here?
         while True:
@@ -39,7 +46,6 @@ class Alarms:
             for num, item in enumerate(options, 1):
                 print(pointer, str(num), str(item))
             user_input = input()
-
 
             if user_input == "1":
                 print("start alarm för", options[0])
@@ -58,7 +64,8 @@ class Alarms:
                     continue
                 else:
                     Alarms.alarms_dict[Alarms.KEY_MIN].append(user_input)
-                    print("activated:", Alarms.alarms_dict[f"{Alarms.KEY_MIN}"])
+                    print("activated:",
+                          Alarms.alarms_dict[f"{Alarms.KEY_MIN}"])
 
             elif user_input == "2":
                 print("start alarm för", options[1])
@@ -87,7 +94,7 @@ class Alarms:
             # göra om det till instansattribut för att skapa ett objekt som
             # kan skickas till menu.py
 
-    @classmethod # decorator
+    @classmethod  # decorator
     def active_alarms(cls):
         # list all alarms_dict active alarms. TODO: Hide key if list is empty.
         # 🏁 this works good enough for the moment
@@ -112,24 +119,25 @@ class Alarms:
         # print(pointer, f"{Alarms.KEY_DISK}: ", Alarms.alarms_dict[Alarms.KEY_DISK])
         # TODO: sort alarms before print.
 
-    @classmethod # decorator
-    def add_alarm(cls): # for testing
+    @classmethod  # decorator
+    def add_alarm(cls):  # for testing
         pass
         # Alarms.alarms_dict[Alarms.KEY_MIN].append("10") # just for TEST
         # Alarms.alarms_dict[Alarms.KEY_CPU].append("10") # just for TEST
         # Alarms.alarms_dict[Alarms.KEY_DISK].append("10") # just for TEST
 
-    @classmethod # decorator
-    def clear_alarm(cls): # for testing
+    @classmethod  # decorator
+    def clear_alarm(cls):  # for testing
         # 1. clear by KEY
         # Alarms.alarms_dict[Alarms.KEY_MIN].clear() # TEST remove all alarms in the list of the key "minnesanvändning".
         # 2. clear all
-        Alarms.alarms_dict.clear() # clear whole dictionary
+        Alarms.alarms_dict.clear()  # clear whole dictionary
 
-    @classmethod # decorator
-    def delete_alarm(cls): # for deleting an especfic alarm in the list
+    @classmethod  # decorator
+    def delete_alarm(cls):  # for deleting an especfic alarm in the list
         if "10" in Alarms.alarms_dict[Alarms.KEY_MIN]:
-            Alarms.alarms_dict[Alarms.KEY_MIN].remove("10") # TEST remove all alarms in the list of the key "minnesanvändning".
+            # TEST remove all alarms in the list of the key "minnesanvändning".
+            Alarms.alarms_dict[Alarms.KEY_MIN].remove("10")
             print("value 10 removed from list")
         else:
             print("10 not in list")
@@ -137,9 +145,11 @@ class Alarms:
 
 
 class menu_options():
-    pass # create menu options with message: "Create an alarm for:"
+    pass  # create menu options with message: "Create an alarm for:"
 
-alarms_instance = Alarms() # instance of Alarms object that inherit all dictionaries and alises
+
+# instance of Alarms object that inherit all dictionaries and alises
+alarms_instance = Alarms()
 # that is KEY_n that I defined earlier.
 # setup alarms init end
 print(alarms_instance.alarms_dict)
