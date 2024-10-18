@@ -1,4 +1,3 @@
-import psutil
 from alarm import Alarms
 from logger import Logger
 from monitor import Monitor
@@ -11,15 +10,12 @@ monitor_monitor_mode = Monitor.monitor_mode()
 get_home_path = Utils.get_home_path()
 
 
-def get_disk_usage():
-    return psutil.disk_usage(get_home_path)
-
-
 class Menu():
 
     @staticmethod
     def menu_startup():
         while True:
+
             options = [
                 "Starta övervakning",
                 "Lista aktiv övervakning",
@@ -27,11 +23,22 @@ class Menu():
                 "Visa larm",
                 "Starta övervakningsläge"
             ]
-            welcome_message = "hello and welcome choose an option:"
+
+            # actions = [
+            #     "Monitor.monitor_start()",
+            #     "Alarms.active_alarms()",
+            #     "Alarms.options_menu()",
+            #     "Alarms.active_alarms()",
+            #     "Monitor.monitor_mode()",
+            # ]
+
+            welcome_message = "Hello and welcome choose an option:"
             print(pointer, welcome_message)
             for num, item in enumerate(options, 1):
                 print(pointer, str(num), str(item))
+
             user_input = input()
+
             if user_input == "1":
                 #          ╭──────────────────────────────────────────────────────────╮
                 #          │          Startar övervakning av CPU användning,          │
@@ -40,6 +47,7 @@ class Menu():
                 #          │                      programstart.                       │
                 #          ╰──────────────────────────────────────────────────────────╯
                 Monitor.monitor_start()
+
             elif user_input == "2":
                 #          ╭──────────────────────────────────────────────────────────╮
                 #          │   Listar aktiv övervakning som är aktiv samt nuvarande   │
@@ -55,6 +63,7 @@ class Menu():
                 #          │                huvudmenyn för användaren.                │
                 #          ╰──────────────────────────────────────────────────────────╯
                 Alarms.active_alarms()
+
             elif user_input == "3":
                 #          ╭──────────────────────────────────────────────────────────╮
                 #          │   Väljer man detta alternativ får man upp ytterligare    │
@@ -72,6 +81,7 @@ class Menu():
                 #          │             användaren få ett felmeddelande.             │
                 #          ╰──────────────────────────────────────────────────────────╯
                 Alarms.options_menu()
+
             elif user_input == "4":
                 #          ╭──────────────────────────────────────────────────────────╮
                 #          │     Listar alla configurerade larm. Larmen ska vara      │
@@ -82,7 +92,8 @@ class Menu():
                 #          │   tillbaka till huvudmeny Notera att man kan ha flera    │
                 #          │                    larm av samma typ.                    │
                 #          ╰──────────────────────────────────────────────────────────╯
-                active_alarms = Alarms.active_alarms()
+                Alarms.active_alarms()
+
             elif user_input == "5":
                 #       ╭────────────────────────────────────────────────────────────────╮
                 #       │                 Startar ett övervakningsläge.                  │
@@ -94,38 +105,11 @@ class Menu():
                 #       │                för att återgå till huvudmenyn.                 │
                 #       ╰────────────────────────────────────────────────────────────────╯
                 Monitor.monitor_mode()
+
             elif user_input == "exit":
                 break
             else:
                 print("bad input")
-
-
-# first code:
-
-def menu():
-    while True:
-        print("> choose one alternative: cpu, disk, memor, memory")
-        user_input = input()
-        if user_input == "cpu":
-            user_input = input("> choose: cpu_percent, cpu_count")
-            if user_input == "cpu_percent":
-                print(psutil.cpu_percent(1))
-            if user_input == "cores":
-                print(psutil.cpu_count(), "cores")
-        elif user_input == "disk":
-            disk_usage_params = input("> choose: 1. total, 2. used or 3. free")
-            if disk_usage_params == "total":
-                print(psutil.disk_usage(Utils.get_home_path())[1])
-            elif disk_usage_params == "used":
-                print(get_disk_usage()[2])
-            elif disk_usage_params == "free":
-                print(get_disk_usage()[3], "%")
-        elif user_input == "memory":
-            print(psutil.virtual_memory()[2], "%")
-        elif user_input == "exit":
-            break
-        else:
-            print("felaktig input error försök igen")
 
 
 logger_instance = Logger.logger()

@@ -1,29 +1,27 @@
 import os.path
 from datetime import datetime
 
-class Logger():
 
+class Logger():
 
     @staticmethod
     def logger():
-        # set datetime:
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
-        # TODO: add try except
-        # TODO: surpless checking?
         try:
             log_path = './log.txt'
             check_file = os.path.isfile(log_path)
-            if check_file == False:
-                with open(log_path, mode="x") as file:
+            if not check_file:
+                with open(log_path, mode="x") as f:
                     write_string = f"log file created at: {date_time}"
-                    file.write(write_string)
+                    f.write(write_string)
                 print(f"log file created at {date_time}")
-            if check_file == True:
-                with open(log_path, mode="a") as file:
+            if check_file:
+                # Diagnostics: Avoid equality comparisons to `True`; use `if check_file:` for truth checks [E712]
+                with open(log_path, mode="a") as f:
                     write_string = f"program initialized: {date_time}"
-                    file.write("\n")
-                    file.write(write_string)
+                    f.write("\n")
+                    f.write(write_string)
                 print("logfile initialized")
         except Exception:
             print("error no file!")

@@ -1,9 +1,9 @@
-from menu import menu_startup
+# from menu import Menu
 from utils import Utils
 
 # import menu
 
-main_menu = menu_startup()
+# main_menu = Menu.menu_startup()
 # Objekt av klass metoden pointer() från Utils klassen.
 pointer = Utils.pointer()
 

@@ -4,15 +4,16 @@ import psutil
 from menu import Menu
 from utils import Utils
 
-pointer = Utils.pointer() # Objekt av klass metoden pointer från Utils klassen.
+# Objekt av klass metoden pointer från Utils klassen.
+pointer = Utils.pointer()
 
 monitor_started = []
+
 
 class Monitor:
 
     monitor = False
     update_freq = 1
-
 
     @classmethod
     def monitor_start(cls):
@@ -23,20 +24,16 @@ class Monitor:
         monitor = True
         return print(monitor)
 
-
     @classmethod
     def monitor_mode(cls):
-    # Listar aktiv övervakning som är aktiv samt nuvarande övervakningsstatus.
-    # Har man inte startat övervakningen ska en text visas som informerar användaren om att ingen övervakning är aktiv. Annars visas övervakningen, t.ex:
+        # Listar aktiv övervakning som är aktiv samt nuvarande övervakningsstatus.
+        # Har man inte startat övervakningen ska en text visas som informerar användaren om att ingen övervakning är aktiv. Annars visas övervakningen, t.ex:
         if monitor is True:
             print("print all monitor stuff ")
-            time.sleep(1) # update frequency
+            time.sleep(1)  # update frequency
         else:
             print("please activate monitor first")
             Menu.menu_startup()
-
-
-
 
     @classmethod
     def update_frequency(cls, input):
@@ -69,13 +66,16 @@ def monitor_start():
         elif user_input == "return":
             print("return to main menu")
 
+
 def monitor_list_active():
     if monitor_started == "":
         print("no process started")
     else:
         print(monitor_started)
 
+
 def monitor_monitorize():
     print(psutil.virtual_memory()[2], "%")
+
 
 monitor_start()
