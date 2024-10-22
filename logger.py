@@ -6,25 +6,26 @@ from datetime import datetime
 class Logger():
 
     log_indent = "\t"
+    # log icons (require https://github.com/ryanoasis/nerd-fonts):
     folder_icon = "📁"
     alarm_icon = "󰀡"
     icon_initalize = ""
+    now = datetime.now()
+    date_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
     @staticmethod
     def logger():
-        # TODO: make this class attribute better for reusablity.
-        now = datetime.now()
-        date_time = now.strftime("%d/%m/%Y %H:%M:%S")
+        # DONE: make this class attribute better for reusablity.
         try:
             log_path = './log.txt'
             check_file = os.path.isfile(log_path)
             if not check_file:
                 with open(log_path, mode="x") as f:
                     write_string = "log file created."
-                    f.write(date_time)
+                    f.write(Logger.date_time)
                     f.write(" ")
                     f.write(write_string)
-                print(f"log file created at {date_time}")
+                print(f"log file created at {Logger.date_time}")
             if check_file:
                 # Diagnostics: Avoid equality comparisons to `True`; use `if check_file:` for truth checks [E712]
                 with open(log_path, mode="a") as f:
@@ -33,7 +34,7 @@ class Logger():
                     write_string = f"{Logger.icon_initalize} logger loaded."
                     # TODO: make this a class method
                     f.write("\n")
-                    f.write(date_time)
+                    f.write(Logger.date_time)
                     f.write(" ")
                     f.write(write_string)
                 print("logfile initialized")
@@ -47,33 +48,27 @@ class Logger():
         # TODO: Even better just create a utility method with staticmethod that
         # check file existance and creation.
         with open("log.txt", mode="a") as f:
-            now = datetime.now()
-            date_time = now.strftime("%d/%m/%Y %H:%M:%S")
             write_string = f"{Logger.folder_icon} File {file_name} not found."
             f.write("\n")
-            f.write(date_time)
+            f.write(Logger.date_time)
             f.write(" ")
             f.write(write_string)
 
     @staticmethod
     def logger_save_alarm_reached(alarm, value):
         with open("log.txt", mode="a") as f:
-            now = datetime.now()
-            date_time = now.strftime("%d/%m/%Y %H:%M:%S")
             write_string = f"{Logger.alarm_icon} Alarm {alarm} with value {value} has been reached."
             f.write("\n")
-            f.write(date_time)
+            f.write(Logger.date_time)
             f.write(" ")
             f.write(write_string)
 
     @staticmethod
     def logger_json_file_created(file_name):
         with open("log.txt", mode="a") as f:
-            now = datetime.now()
-            date_time = now.strftime("%d/%m/%Y %H:%M:%S")
             write_string = f"Json file with name: {file_name} has been created."
             f.write("\n")
-            f.write(date_time)
+            f.write(Logger.date_time)
             f.write(" ")
             f.write(write_string)
 
