@@ -1,5 +1,5 @@
-import time
 import json
+import time
 
 import psutil
 from menu import Menu
@@ -19,8 +19,8 @@ class Monitor:
     @classmethod
     def monitor_start(cls):
         # cls.monitor = Monitor.monitor
-    # Startar övervakning av CPU användning, minnesanvändning och diskanvändning.
-    # Notera alltså att ingen övervakning ska starta automatiskt vid programstart
+        # Startar övervakning av CPU användning, minnesanvändning och diskanvändning.
+        # Notera alltså att ingen övervakning ska starta automatiskt vid programstart
         print("monitor started")
         Monitor.monitor = True
         return print(Monitor.monitor)
@@ -30,13 +30,26 @@ class Monitor:
         # Listar aktiv övervakning som är aktiv samt nuvarande övervakningsstatus.
         # Har man inte startat övervakningen ska en text visas som informerar användaren om att ingen övervakning är aktiv. Annars visas övervakningen, t.ex:
         if Monitor.monitor is True:
+            try:
+                with open("alarms.json", mode="r", encoding="utf-8") as f:
+                    data = json.load(f)
+            except FileNotFoundError:
+                print("no json monitor file")
+                pass
+            monitor_message = "monitor started"
+            print(monitor_message)
 
-            with open("alarms.json", mode="r", encoding="utf-8") as f:
-                data = json.load(f)
             # print('\033[1;1H' + time.asctime(time.localtime()))
-            print('\033[1;1H' + data)
-            time.sleep(1)  # update frequency TODO: make it a function for
-            # configurability.
+            # print('\033[1;1H' + str(list(data)))
+
+            # TODO: add escape, add fun time.sleep for configurability, add
+            # cursor movment for print decluttering not ocuppying all screen.
+            try:
+                while True:
+                    print( "Övervakning är aktiv, tryck på valfri tangent för att återgå till menyn.")
+                    time.sleep(1)
+            except KeyboardInterrupt:  # just a <C-c> breaking TODO: add other keybreak options
+                pass
         else:
             print("please activate monitor first")
             # Menu.menu_startup()

@@ -1,6 +1,8 @@
 import os
+import json
 
 import psutil
+from logger import Logger
 
 
 class Utils:
@@ -13,7 +15,8 @@ class Utils:
 
     @staticmethod
     def alarms_options():
-        options = ["CPU", "MEMORY", "DISK", "gå tillbaka till huvudmenyn", "exit application", "save"]  # klassattribut
+        options = ["CPU", "MEMORY", "DISK", "gå tillbaka till huvudmenyn",
+                   "exit application", "save"]  # klassattribut
         message = "Create an alarm for:"
         print(message)
         for num, item in enumerate(options, 1):
@@ -26,6 +29,17 @@ class Utils:
             return os.path.expanduser("~")
         home_dir = get_home_directory_with_expanduser()
         return home_dir
+
+    @staticmethod
+    def read_alarms_json():
+        try:
+            json_file_name = "alarms.json"
+            with open(json_file_name, mode="r", encoding="utf-8") as f:
+                data = json.load(f)
+                return data
+        except FileNotFoundError:
+            print("no json monitor file found")
+            Logger.logger_file_not_found(json_file_name)
 
     # psutil statistics
 
