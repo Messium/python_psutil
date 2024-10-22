@@ -5,7 +5,7 @@ from datetime import datetime
 
 class Logger():
 
-    log_indent = "\t"
+    log_indent = "\t" # not used yet
     # log icons (require https://github.com/ryanoasis/nerd-fonts):
     folder_icon = "📁"
     alarm_icon = "󰀡"
@@ -14,45 +14,34 @@ class Logger():
     date_time = now.strftime("%d/%m/%Y %H:%M:%S")
 
     @staticmethod
+    # creates the logger or loggit as loaded at startup.
     def logger():
         # DONE: make this class attribute better for reusablity.
         try:
             log_path = './log.txt'
             check_file = os.path.isfile(log_path)
             if not check_file:
-                with open(log_path, mode="x") as f:
-                    write_string = "log file created."
-                    f.write(Logger.date_time)
-                    f.write(" ")
-                    f.write(write_string)
+                # TODO: make the logger not create a \n newline for this
+                # method.
+                Logger.logger_write(f"{Logger.icon_initalize} log file created.")
                 print(f"log file created at {Logger.date_time}")
             if check_file:
-                # Diagnostics: Avoid equality comparisons to `True`; use `if check_file:` for truth checks [E712]
-                with open(log_path, mode="a") as f:
-                    # TODO: Make this string an input to a class method so its can be
-                    # reusable
-                    write_string = f"{Logger.icon_initalize} logger loaded."
-                    # TODO: make this a class method
-                    f.write("\n")
-                    f.write(Logger.date_time)
-                    f.write(" ")
-                    f.write(write_string)
-                print("logfile initialized")
+                Logger.logger_write(f"{Logger.icon_initalize} logger loaded.")
+                print("logger works")
         except Exception:
             print("error no file!")
 
     @staticmethod
-    def logger_file_not_found(file_name):
-        # TODO: use the check if file exist from Logger.logger main function here instead
-        # of recreating it think DRY. Also to ensure file existance.
-        # TODO: Even better just create a utility method with staticmethod that
-        # check file existance and creation.
+    def logger_write(write_string):
         with open("log.txt", mode="a") as f:
-            write_string = f"{Logger.folder_icon} File {file_name} not found."
             f.write("\n")
             f.write(Logger.date_time)
             f.write(" ")
             f.write(write_string)
+
+    @staticmethod
+    def logger_file_not_found(file_name):
+        Logger.logger_write(f"{Logger.folder_icon} File {file_name} not found.")
 
     @staticmethod
     def logger_save_alarm_reached(alarm, value):
