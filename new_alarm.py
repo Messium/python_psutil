@@ -2,6 +2,8 @@ from utils import Utils
 import json
 from logger import Logger
 
+# TODO: make a branch that implement this but as a more OOP paradigm.
+
 # TODO: need to add a appending method for new alarms to be added to already
 # existing json file. First add a method that initialize an already exisiting json file, that is
 # read the file into memory and give warning if no alarms.json file exists.
@@ -47,8 +49,12 @@ class Alarm:
         # 6. Minneslarm 80%
         # 7. Minneslarm 90%
 
+    # TODO: create a new structure that save a completly new strcuture if there
+    # is no existing alarms.json file.
+
     @staticmethod
     def save_json():
+        Utils.read_alarms_json()
         # TODO: check if already existing alarm before initialization of new
         # alarm.
         alarms_dict = {}  # intialization of alarm dictionary.

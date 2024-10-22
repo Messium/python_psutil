@@ -4,6 +4,7 @@ import json
 import psutil
 from logger import Logger
 
+# HELP: posible unbound variable here aswell
 
 class Utils:
 
