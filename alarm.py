@@ -1,5 +1,9 @@
-# from menu import Menu
 from utils import Utils
+# from menu import Menu
+
+# WARNING: ImportError: cannot import name 'Menu' from
+# partially initialized module 'menu' (most likely due to a circular import) (/home/messiu m/dev/python/python_psutil/menu.py)
+# Read about circular import
 
 # import menu
 
@@ -26,15 +30,16 @@ class Alarms:
     alarms_dict[KEY_CPU] = []  # create key with empty list
     alarms_dict[KEY_DISK] = []  # create key with empty list
     KEY_OPTIONS = [KEY_MIN, KEY_CPU, KEY_DISK]
-    options = [KEY_MIN, KEY_CPU, KEY_DISK,
-               "gå tillbaka till huvudmenyn", "exit application"]  # klassattribut
+    options = [KEY_MIN, KEY_CPU, KEY_DISK, "gå tillbaka till huvudmenyn", "exit application"]  # klassattribut
     # options = [KEY_MIN, KEY_CPU, KEY_DISK, "gå tillbaka till huvudmenyn", "exit application"] # klassattribut
     # TODO: make this the menu options as a class to be used in menu, alarms and monitor
 
     # @classmethod
     # def options_menu(cls):
-    @classmethod  # decorator
-    def options_menu(cls):
+    # WARNING: Den här borde vara statisk.
+    # @classmethod  # decorator
+    @staticmethod
+    def options_menu():
         # TODO:
         options = Alarms.options  # klassattributet options från Alarms.
         # HELP: Hur får jag instansattributet self.alarms till den här metoden?
@@ -69,20 +74,34 @@ class Alarms:
                 print("start alarm för", options[1])
                 print("desired %?")
                 user_input = input()
-                if user_input.isdigit():
-                    print("its a digit")
+                if user_input in Alarms.alarms_dict[f"{Alarms.KEY_CPU}"]:
+                    print("already activated")
+                    continue
+                if int(user_input) > 100 or int(user_input) <= 0:
+                    # TODO: condense it further
+                    print("please choose a number between 1-100")
+                    continue
                 else:
-                    print("is not a digit")
+                    Alarms.alarms_dict[Alarms.KEY_CPU].append(user_input)
+                    print("activated:",
+                          Alarms.alarms_dict[f"{Alarms.KEY_CPU}"])
             elif user_input == "3":
                 print("start alarm för", options[1])
                 print("desired %?")
                 user_input = input()
-                if user_input.isdigit():
-                    print("its a digit")
+                if user_input in Alarms.alarms_dict[f"{Alarms.KEY_DISK}"]:
+                    print("already activated")
+                    continue
+                if int(user_input) > 100 or int(user_input) <= 0:
+                    # TODO: condense it further
+                    print("please choose a number between 1-100")
+                    continue
                 else:
-                    print("is not a digit")
+                    Alarms.alarms_dict[Alarms.KEY_DISK].append(user_input)
+                    print("activated:",
+                          Alarms.alarms_dict[f"{Alarms.KEY_DISK}"])
             elif user_input == "4":
-                pass
+                Menu.menu_startup()
             elif user_input == "5":
                 break
             else:
@@ -96,6 +115,8 @@ class Alarms:
     def active_alarms(cls):
         # list all alarms_dict active alarms. TODO: Hide key if list is empty.
         # 🏁 this works good enough for the moment
+        # - [ ] # Använd lambda och funktionell programmering från 21-10-2024 lektion.
+        print("active alarms")
         if Alarms.alarms_dict[Alarms.KEY_MIN] == [] and Alarms.alarms_dict[Alarms.KEY_CPU] == [] and Alarms.alarms_dict[Alarms.KEY_DISK] == []:
             print("no active alarms")
         else:

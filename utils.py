@@ -12,6 +12,14 @@ class Utils:
         return ">"
 
     @staticmethod
+    def alarms_options():
+        options = ["CPU", "MEMORY", "DISK", "gå tillbaka till huvudmenyn", "exit application", "save"]  # klassattribut
+        message = "Create an alarm for:"
+        print(message)
+        for num, item in enumerate(options, 1):
+            print(Utils.pointer(), str(num), str(item))
+
+    @staticmethod
     def get_home_path():
         # gets user $home director
         def get_home_directory_with_expanduser():

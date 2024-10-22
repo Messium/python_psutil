@@ -1,16 +1,19 @@
 from alarm import Alarms
 from logger import Logger
-from monitor import Monitor
+from monitor import Monitor # surpless
 from utils import Utils
 
 # Objekt av klass metoden pointer() från Utils klassen.
 pointer = Utils.pointer()
-monitor_start = Monitor.monitor_start()
+# monitor_start = Monitor.monitor_start()
 monitor_monitor_mode = Monitor.monitor_mode()
 get_home_path = Utils.get_home_path()
 
 
 class Menu():
+
+    # Eftersom klassens state eller objekt inte behövs ändras eller få tillgång
+    # till klassattribut eller andra värden så har jag valt en staticmethod över en classmethod.
 
     @staticmethod
     def menu_startup():
@@ -21,7 +24,9 @@ class Menu():
                 "Lista aktiv övervakning",
                 "Skapa larm",
                 "Visa larm",
-                "Starta övervakningsläge"
+                "Starta övervakningsläge",
+                "clear alarms",
+                "delete alarms",
             ]
 
             # actions = [
@@ -105,6 +110,12 @@ class Menu():
                 #       │                för att återgå till huvudmenyn.                 │
                 #       ╰────────────────────────────────────────────────────────────────╯
                 Monitor.monitor_mode()
+
+            elif user_input == "6":
+                Alarms.clear_alarm()
+
+            elif user_input == "7":
+                Alarms.delete_alarm()
 
             elif user_input == "exit":
                 break
