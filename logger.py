@@ -8,25 +8,29 @@ class Logger():
     '''Logger class with configuration'''
 
     log_indent = "\t" # not used yet
+
+    # ICONS
     folder_icon = "📁"
     alarm_icon = "󰀡"
     icon_initalize = ""
+
+    # DATE
+    date_format = "%d/%m/%Y %H:%M:%S"
     # TODO: Can you merge these two into a oneliner?
     now = datetime.now()
-    date_time = now.strftime("%d/%m/%Y %H:%M:%S")
-    log_name = "./log.txt"
+    date_time = now.strftime(date_format)
+    log_name = "./log3.txt"
 
     @staticmethod
     # creates the logger or loggit as loaded at startup.
     def logger():
         # DONE: make this class attribute better for reusablity.
         try:
-            log_path = Logger.log_name
-            check_file = os.path.isfile(log_path)
+            check_file = os.path.isfile(Logger.log_name)
             if not check_file:
-                # TODO: make the logger not create a \n newline for this
+                # DONE: make the logger not create a \n newline for this
                 # method.
-                Logger.logger_write(f"{Logger.icon_initalize} log file created.", mode="w")
+                Logger.logger_write(f"{Logger.icon_initalize} log file created.", mode="w", newline="")
                 print(f"log file created at {Logger.date_time}")
             if check_file:
                 Logger.logger_write(f"{Logger.icon_initalize} logger loaded.")
@@ -35,10 +39,10 @@ class Logger():
             print("error no file!")
 
     @staticmethod
-    def logger_write(write_string, mode="a"): # default set to append optional param set to append
+    def logger_write(write_string, mode="a", newline="\n"): # default set to append optional param set to append
         log_name = Logger.log_name
         with open(log_name, mode=f"{mode}", encoding="utf-8") as f:
-            f.write("\n")
+            f.write(f"{newline}")
             f.write(Logger.date_time)
             f.write(" ")
             f.write(write_string)
