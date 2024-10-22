@@ -8,9 +8,11 @@ class Logger():
     log_indent = "\t"
     folder_icon = "📁"
     alarm_icon = "󰀡"
+    icon_initalize = ""
 
     @staticmethod
     def logger():
+        # TODO: make this class attribute better for reusablity.
         now = datetime.now()
         date_time = now.strftime("%d/%m/%Y %H:%M:%S")
         try:
@@ -18,7 +20,9 @@ class Logger():
             check_file = os.path.isfile(log_path)
             if not check_file:
                 with open(log_path, mode="x") as f:
-                    write_string = f"log file created at: {date_time}"
+                    write_string = "log file created."
+                    f.write(date_time)
+                    f.write(" ")
                     f.write(write_string)
                 print(f"log file created at {date_time}")
             if check_file:
@@ -26,7 +30,7 @@ class Logger():
                 with open(log_path, mode="a") as f:
                     # TODO: Make this string an input to a class method so its can be
                     # reusable
-                    write_string = f"program initialized."
+                    write_string = f"{Logger.icon_initalize} logger loaded."
                     # TODO: make this a class method
                     f.write("\n")
                     f.write(date_time)
@@ -72,3 +76,13 @@ class Logger():
             f.write(date_time)
             f.write(" ")
             f.write(write_string)
+
+    # tester method:
+    @staticmethod
+    def test_logger():
+        Logger.logger()
+        Logger.logger_file_not_found("test.json")
+        Logger.logger_save_alarm_reached("CPU TEST", "50")
+        Logger.logger_json_file_created("test.json")
+
+Logger.test_logger()
