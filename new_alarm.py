@@ -42,7 +42,22 @@ class Alarm:
     @staticmethod
     def delete_alarm():
         data = Utils.read_alarms_json()
-        print(data)
+        print(type(data))
+        # TODO: CREATE a while loop for selectin options
+        while True:
+            print("delete an alarm")
+            # print the alarms here.
+            if user_input == "1":
+                pass
+
+            if user_input == "2":
+                pass
+
+            if user_input == "3":
+                pass
+
+            if user_input == "exit":
+                break
         # så här ska listan se ut för valbara alternativ:
         # Välj ett konfigurerat larm att ta bort:
         # 5. CPU larm 70%

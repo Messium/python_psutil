@@ -42,6 +42,16 @@ class Utils:
             print("no json monitor file found")
             Logger.logger_file_not_found(json_file_name)
 
+    @staticmethod
+    def save_alarm_json():
+        try:
+            json_file_name = "alarms.json"
+            with open(json_file_name, mode="w", encoding="utf-8") as f:
+                json.dump(Delete_alarm.data, f)
+        except FileNotFoundError:
+            pass
+
+
     # psutil statistics
 
     @classmethod

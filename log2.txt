@@ -1,5 +1,0 @@
-
-22/10/2024 15:55:10  log file created.
-22/10/2024 15:55:10 📁 File test.json not found.
-22/10/2024 15:55:10 󰀡 Alarm CPU TEST with value 50 has been reached.
-22/10/2024 15:55:10 Json file with name: test.json has been created.

@@ -7,11 +7,12 @@ class Logger():
 
     '''Logger class with configuration'''
 
-    log_indent = "\t" # not used yet
+    log_write_spacing = " --- "
 
     # ICONS
     folder_icon = "📁"
     alarm_icon = "󰀡"
+    json_icon = ""
     icon_initalize = ""
 
     # DATE
@@ -19,34 +20,50 @@ class Logger():
     # TODO: Can you merge these two into a oneliner?
     now = datetime.now()
     date_time = now.strftime(date_format)
-    log_name = "./log3.txt"
+    log_save_path = "./" # REVIEW: need to be able to handle ""?.
+    log_name = "log.txt"
+    log_full_save = log_save_path + log_name
+
+    @staticmethod
+    # REVIEW: WIP no support for log_save_path = "" handeling
+    # Check if path exist or not else create it.
+    def logger_path():
+        # try catch here instead
+        isExist = os.path.exists(Logger.log_save_path)
+        if isExist is None:
+            # ERROR handling for none correctly formated path
+            print("error this is no path name")
+        elif not isExist:
+            os.makedirs(Logger.log_save_path)
+            print("The new directory is created!")
+            # TODO: create a log entry again for the folder created
+            # Make filepath a new method
 
     @staticmethod
     # creates the logger or loggit as loaded at startup.
     def logger():
-        # DONE: make this class attribute better for reusablity.
+        Logger.logger_path()
         try:
-            check_file = os.path.isfile(Logger.log_name)
+            check_file = os.path.isfile(Logger.log_full_save)
             if not check_file:
-                # DONE: make the logger not create a \n newline for this
-                # method.
                 Logger.logger_write(f"{Logger.icon_initalize} log file created.", mode="w", newline="")
                 print(f"log file created at {Logger.date_time}")
             if check_file:
                 Logger.logger_write(f"{Logger.icon_initalize} logger loaded.")
-                print("logger works")
-        except Exception:
+                print("logger loaded")
+        # except Exception:
+        except FileNotFoundError:
             print("error no file!")
 
     @staticmethod
     def logger_write(write_string, mode="a", newline="\n"): # default set to append optional param set to append
-        log_name = Logger.log_name
-        with open(log_name, mode=f"{mode}", encoding="utf-8") as f:
+        with open(Logger.log_full_save, mode=f"{mode}", encoding="utf-8") as f:
             f.write(f"{newline}")
             f.write(Logger.date_time)
-            f.write(" ")
+            f.write(Logger.log_write_spacing)
             f.write(write_string)
 
+    # TODO: make it absolute path instead
     @staticmethod
     def logger_file_not_found(file_name):
         Logger.logger_write(f"{Logger.folder_icon} File {file_name} not found.")
@@ -57,7 +74,7 @@ class Logger():
 
     @staticmethod
     def logger_json_file_created(file_name):
-        Logger.logger_write(f"Json file with name: {file_name} has been created.")
+        Logger.logger_write(f"{Logger.json_icon} Json file with name: {file_name} has been created.")
 
     # tester method:
     @staticmethod

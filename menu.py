@@ -1,4 +1,5 @@
 from alarm import Alarms
+from delete_alarm_json import Delete_alarm
 from logger import Logger
 from monitor import Monitor # surpless
 from utils import Utils
@@ -19,13 +20,13 @@ class Menu():
     def menu_startup():
         while True:
 
+            # TODO: make it a dict instead much smarter
             options = [
                 "Starta övervakning",
                 "Lista aktiv övervakning",
                 "Skapa larm",
                 "Visa larm",
                 "Starta övervakningsläge",
-                "clear alarms",
                 "delete alarms",
             ]
 
@@ -112,10 +113,7 @@ class Menu():
                 Monitor.monitor_mode()
 
             elif user_input == "6":
-                Alarms.clear_alarm()
-
-            elif user_input == "7":
-                Alarms.delete_alarm()
+                Delete_alarm.menu_delete()
 
             elif user_input == "exit":
                 break

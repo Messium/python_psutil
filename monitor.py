@@ -30,7 +30,7 @@ class Monitor:
         # Listar aktiv övervakning som är aktiv samt nuvarande övervakningsstatus.
         # Har man inte startat övervakningen ska en text visas som informerar användaren om att ingen övervakning är aktiv. Annars visas övervakningen, t.ex:
         if Monitor.monitor is True:
-            try:
+           try:
                 with open("alarms.json", mode="r", encoding="utf-8") as f:
                     data = json.load(f)
             except FileNotFoundError:
