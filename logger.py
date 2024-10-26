@@ -1,6 +1,13 @@
 import os.path
 from datetime import datetime
+import tomllib
 
+# TODO: create configuration.toml if it dosn't exist with default values
+with open("configuration.toml", "rb") as f:
+    # TypeError: File must be opened in binary mod e, e.g. use `open('foo.toml', 'rb')`
+    toml_data = tomllib.load(f)
+
+logger_elems = toml_data.get("logger")
 # log icons (require https://github.com/ryanoasis/nerd-fonts):
 
 class Logger():
@@ -9,14 +16,42 @@ class Logger():
 
     log_write_spacing = " --- "
 
+    # TOML_CONFIGURATION
+
     # ICONS
-    folder_icon = "📁"
-    alarm_icon = "󰀡"
-    json_icon = ""
-    icon_initalize = ""
+    if logger_elems.get("folder_icon"):
+        folder_icon = logger_elems.get("folder_icon")
+    else:
+        folder_icon = "📁" # default icon
+
+    if logger_elems.get("alarm_icon"):
+        alarm_icon = logger_elems.get("alarm_icon")
+    else:
+        alarm_icon = "󰀡" # default icon
+
+    if logger_elems.get("json_icon"):
+        json_icon = logger_elems.get("json_icon")
+    else:
+        json_icon = "" # default icon
+
+    if logger_elems.get("initalize_icon"):
+        initalize_icon = logger_elems.get("initalize_icon")
+    else:
+        json_icon = "" # default icon
+
+    if logger_elems.get("date_format"):
+        date_format = logger_elems.get("date_format")
+    else:
+        date_format = "%d/%m/%Y %H:%M:%S"
+
+    # HARDCODED
+    # folder_icon = "📁"
+    # alarm_icon = "󰀡"
+    # json_icon = ""
+    # initalize_icon = ""
 
     # DATE
-    date_format = "%d/%m/%Y %H:%M:%S"
+    # date_format = "%d/%m/%Y %H:%M:%S"
     # TODO: Can you merge these two into a oneliner?
     now = datetime.now()
     date_time = now.strftime(date_format)
@@ -46,10 +81,10 @@ class Logger():
         try:
             check_file = os.path.isfile(Logger.log_full_save)
             if not check_file:
-                Logger.logger_write(f"{Logger.icon_initalize} log file created.", mode="w", newline="")
+                Logger.logger_write(f"{Logger.initalize_icon} log file created.", mode="w", newline="")
                 print(f"log file created at {Logger.date_time}")
             if check_file:
-                Logger.logger_write(f"{Logger.icon_initalize} logger loaded.")
+                Logger.logger_write(f"{Logger.initalize_icon} logger loaded.")
                 print("logger loaded")
         # except Exception:
         except FileNotFoundError:

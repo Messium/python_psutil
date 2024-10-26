@@ -16,8 +16,9 @@ class Monitor:
     monitor = False
     update_freq = 1
 
-    @classmethod
-    def monitor_start(cls):
+    @staticmethod
+    # @classmethod
+    def monitor_start():
         # cls.monitor = Monitor.monitor
         # Startar övervakning av CPU användning, minnesanvändning och diskanvändning.
         # Notera alltså att ingen övervakning ska starta automatiskt vid programstart

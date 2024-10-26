@@ -1,7 +1,10 @@
+from alarm import Alarms
 from delete_alarm_json import Delete_alarm
 from logger import Logger
 from new_alarm import Alarm
+# from monitor import Monitor
 from new_monitor import Monitor
+from monitor_check_json_values import Monitorize
 from utils import Utils
 from sys import platform
 
@@ -13,7 +16,6 @@ welcome_message = Utils.welcome_message()
 get_home_path = Utils.get_home_path()
 
 
-# Move to utils
 if platform == "linux" or platform == "linux2":
     print("welcome linux user")
 elif platform == "darwin":
@@ -113,9 +115,8 @@ class Menu():
                     #          │                    larm av samma typ.                    │
                     #          ╰──────────────────────────────────────────────────────────╯
                     # Alarms.active_alarms()
-                    # REVIEW:
-                    Alarm.sorted_list()
-
+                    # TODO:
+                    Alarm.print_all()
 
                 elif user_input == "5":
                     #       ╭────────────────────────────────────────────────────────────────╮
@@ -129,7 +130,7 @@ class Menu():
                     #       ╰────────────────────────────────────────────────────────────────╯
                     # Monitor.monitor_mode()
                     # REVIEW:
-                    Monitor.monitor_mode()
+                    Monitorize.monitor_mode()
                 elif user_input == "6":
                     Delete_alarm.menu_delete()
                     # DONE:
@@ -143,5 +144,4 @@ class Menu():
 
 
 Logger.logger()
-json_data = Utils.read_alarms_json()
 Menu.menu_startup()

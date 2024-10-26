@@ -177,4 +177,4 @@ alarms_instance.add_alarm()
 alarms_instance.active_alarms()
 
 
-user_input = Alarms.options_menu()
+# user_input = Alarms.options_menu()

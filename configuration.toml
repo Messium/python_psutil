@@ -1,0 +1,12 @@
+# This is a TOML document
+
+[menu]
+pointer = ">"
+welcome_message = "Hello and welcome choose an option:"
+[logger]
+folder_icon = "📁"
+alarm_icon = "󰞏"
+json_icon = "👺"
+initalize_icon = "🌟"
+# date_format = "%d/%m/%Y %H:%M:%S" # default
+date_format = "%d/%m/%Y"
