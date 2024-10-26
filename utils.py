@@ -9,9 +9,19 @@ with open("configuration.toml", "rb") as f:
     toml_data = tomllib.load(f)
 
 menu_elems = toml_data.get("menu")
+file_names = toml_data.get("file_names")
+
 # HELP: posible unbound variable here aswell
 
 class Utils:
+
+    @staticmethod
+    def json_file_name():
+        json_file_name = file_names.get("json_file_name")
+        if json_file_name:
+            return json_file_name
+        else:
+            return "alarms.json"
 
 
     @staticmethod

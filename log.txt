@@ -421,3 +421,45 @@
 26/10/2024 --- 󰞏 Alarm DISK with value 20 has been reached.
 26/10/2024 --- 󰞏 Alarm CPU with value 2 has been reached.
 26/10/2024 --- 󰞏 Alarm CPU with value 25 has been reached.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 📁 File test.json not found.
+26/10/2024 --- 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 --- 👺 Json file with name: test.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 👺 Json file with name: alarms.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 📁 File test.json not found.
+26/10/2024 --- 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 --- 👺 Json file with name: test.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 📁 File test.json not found.
+26/10/2024 --- 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 --- 👺 Json file with name: test.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 📁 File test.json not found.
+26/10/2024 --- 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 --- 👺 Json file with name: test.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 👺 Json file with name: alarms2.json has been created.
+26/10/2024___🌟 logger loaded.
+26/10/2024___📁 File test.json not found.
+26/10/2024___󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024___👺 Json file with name: test.json has been created.
+26/10/2024___🌟 logger loaded.
+26/10/2024___Monitor started
+26/10/2024___👺 Json file with name: alarms.json has been created.
+26/10/2024 🥊🥊🥊 🌟 logger loaded.
+26/10/2024 🥊🥊🥊 📁 File test.json not found.
+26/10/2024 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 🥊🥊🥊 👺 Json file with name: test.json has been created.
+26/10/2024 🥊🥊🥊 🌟 logger loaded.
+26/10/2024 🥊🥊🥊 Monitor started
+26/10/2024 18:26:19 🥊🥊🥊 🌟 logger loaded.
+26/10/2024 18:26:19 🥊🥊🥊 📁 File test.json not found.
+26/10/2024 18:26:19 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 18:26:19 🥊🥊🥊 👺 Json file with name: test.json has been created.
+26/10/2024 18:26:19 🥊🥊🥊 🌟 logger loaded.
+26/10/2024 18:26:19 🥊🥊🥊 👺 Json file with name: alarms.json has been created.
+26/10/2024 18:26:19 🥊🥊🥊 󰞏 Alarm CPU with value 1 has been reached.
+26/10/2024 18:26:19 🥊🥊🥊 󰞏 Alarm DISK with value 20 has been reached.

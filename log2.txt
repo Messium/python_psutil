@@ -1,0 +1,18 @@
+26/10/2024 --- 🌟 log file created.
+26/10/2024 --- 📁 File test.json not found.
+26/10/2024 --- 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 --- 👺 Json file with name: test.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 👺 Json file with name: alarms.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 📁 File test.json not found.
+26/10/2024 --- 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 --- 👺 Json file with name: test.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- Monitor started
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- 📁 File test.json not found.
+26/10/2024 --- 󰞏 Alarm CPU TEST with value 50 has been reached.
+26/10/2024 --- 👺 Json file with name: test.json has been created.
+26/10/2024 --- 🌟 logger loaded.
+26/10/2024 --- Monitor started

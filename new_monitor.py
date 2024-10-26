@@ -45,6 +45,7 @@ class Monitor():
             # print("DISK", DISK())
             # print("MEMORY", MEMORY())
             try:
+                # future implement add concurrency https://docs.python.org/3/library/multiprocessing.htmlhttps://docs.python.org/3/library/multiprocessing.html
                 for x in json_data["CPU"]:
                     if Monitor.CPU() >= int(x):
                         print(f"ALARM! CPU value {x} has been reached")
@@ -59,5 +60,6 @@ class Monitor():
                     if Monitor.MEMORY() >= int(x):
                         print(f"ALARM! MEMORY value {x} has been reached")
                         Logger.logger_save_alarm_reached("MEMORY", x)
+
             except KeyboardInterrupt:
                 break

@@ -14,11 +14,18 @@ class Logger():
 
     '''Logger class with configuration'''
 
-    log_write_spacing = " --- "
+    log_spacing = " --- "
+
+    if logger_elems.get("log_spacing"):
+        log_spacing = logger_elems.get("log_spacing")
+    else:
+        log_spacing = " --- " # default icon
 
     # TOML_CONFIGURATION
 
     # ICONS
+    # TODO: make this into a config class OOP for less verbose structure:
+    #
     if logger_elems.get("folder_icon"):
         folder_icon = logger_elems.get("folder_icon")
     else:
@@ -44,6 +51,16 @@ class Logger():
     else:
         date_format = "%d/%m/%Y %H:%M:%S"
 
+    if logger_elems.get("log_save_path"):
+        log_save_path = logger_elems.get("log_save_path")
+    else:
+        log_save_path = "./"
+
+    if logger_elems.get("log_name"):
+        log_name = logger_elems.get("log_name")
+    else:
+        log_name = "log.txt"
+
     # HARDCODED
     # folder_icon = "📁"
     # alarm_icon = "󰀡"
@@ -55,8 +72,8 @@ class Logger():
     # TODO: Can you merge these two into a oneliner?
     now = datetime.now()
     date_time = now.strftime(date_format)
-    log_save_path = "./" # REVIEW: need to be able to handle ""?.
-    log_name = "log.txt"
+    # log_save_path = "./" # REVIEW: need to be able to handle ""?.
+    # log_name = "log.txt"
     log_full_save = log_save_path + log_name
 
     @staticmethod
@@ -95,7 +112,7 @@ class Logger():
         with open(Logger.log_full_save, mode=f"{mode}", encoding="utf-8") as f:
             f.write(f"{newline}")
             f.write(Logger.date_time)
-            f.write(Logger.log_write_spacing)
+            f.write(Logger.log_spacing)
             f.write(write_string)
 
     # TODO: make it absolute path instead
