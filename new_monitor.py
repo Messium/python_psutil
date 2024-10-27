@@ -56,6 +56,7 @@ class Monitor():
             # print("CPU", CPU())
             # print("DISK", DISK())
             # print("MEMORY", MEMORY())
+            print("Övervakning är aktiv, tryck på valfri tangent för att återgå till menyn.")
             try:
                 # future implement add concurrency https://docs.python.org/3/library/multiprocessing.htmlhttps://docs.python.org/3/library/multiprocessing.html
                 for x in json_data["CPU"]:
