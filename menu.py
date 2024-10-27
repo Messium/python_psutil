@@ -3,23 +3,23 @@ from logger import Logger
 from new_alarm import Alarm
 from new_monitor import Monitor
 from utils import Utils
-from sys import platform
+# from sys import platform
 
 # Objekt av klass metoden pointer() från Utils klassen.
 pointer = Utils.pointer()
-welcome_message = Utils.welcome_message()
+# welcome_message = Utils.welcome_message()
 # monitor_start = Monitor.monitor_start()
 # monitor_monitor_mode = Monitor.monitor_mode()
 get_home_path = Utils.get_home_path()
 
 
 # Move to utils
-if platform == "linux" or platform == "linux2":
-    print("welcome linux user")
-elif platform == "darwin":
-    print("welcome mac user")
-elif platform == "win32":
-    print("welcome win user")
+# if platform == "linux" or platform == "linux2":
+#     print("welcome linux user")
+# elif platform == "darwin":
+#     print("welcome mac user")
+# elif platform == "win32":
+#     print("welcome win user")
 
 
 class Menu():
@@ -47,7 +47,7 @@ class Menu():
         while True:
             try:
 
-                print(pointer, welcome_message)
+                print(pointer, Utils.welcome_message())
 
                 for key, value in Menu.options.items():
                     print(pointer, key, value[0])

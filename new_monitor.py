@@ -1,6 +1,8 @@
 import psutil
 from utils import Utils
 from logger import Logger
+from sys import platform
+import subprocess
 
 json_data = Utils.read_alarms_json()
 
@@ -37,6 +39,16 @@ class Monitor():
 
     # TODO: compare class monitor_mode
 
+
+    @staticmethod
+    def run_command(cmd):
+        try:
+            # Kör git-kommandot med subprocess
+            result = subprocess.Popen(cmd)
+            return result.stdout
+        except Exception as error:
+            return f"There was an error: {error}"
+
     @staticmethod
     def monitor_mode():
         while True:
@@ -50,16 +62,26 @@ class Monitor():
                     if Monitor.CPU() >= int(x):
                         print(f"ALARM! CPU value {x} has been reached")
                         Logger.logger_save_alarm_reached("CPU", x)
+                        if platform == "linux" or platform == "linux2":
+                        # TODO: make this a function/method
+                            command = ["notify-send", "ALARM! CPU value", f"{x} has been reached", "--icon=dialog-crital"]
+                            Monitor.run_command(command)
 
                 for x in json_data["DISK"]:
                     if Monitor.DISK() >= int(x):
                         print(f"ALARM! DISK value {x} has been reached")
                         Logger.logger_save_alarm_reached("DISK", x)
+                        if platform == "linux" or platform == "linux2":
+                            command = ["notify-send", "ALARM! DISK value", f"{x} has been reached", "--icon=dialog-crital"]
+                            Monitor.run_command(command)
 
                 for x in json_data["MEMORY"]:
                     if Monitor.MEMORY() >= int(x):
                         print(f"ALARM! MEMORY value {x} has been reached")
                         Logger.logger_save_alarm_reached("MEMORY", x)
+                        if platform == "linux" or platform == "linux2":
+                            command = ["notify-send", "ALARM! MEMORY value", f"{x} has been reached", "--icon=dialog-crital"]
+                            Monitor.run_command(command)
 
             except KeyboardInterrupt:
                 break
