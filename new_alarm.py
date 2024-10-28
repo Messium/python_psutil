@@ -26,6 +26,7 @@ class Alarm:
     def __str__(self):
         return f"Alarm level: {self.alarm_level}, alarm type: {self.alarm_type}"
 
+
     # TODO: this function is dupplicated also present in 4. Visa larm
     # test_create_objects_and_sort.py
     @staticmethod
@@ -43,8 +44,8 @@ class Alarm:
                 alarm_list.append(Alarm(value, key))
         sorted_list = sorted(alarm_list, key=lambda alarm: (alarm.alarm_type, alarm.alarm_level))
 
-        for item in sorted_list:
-            print(item)
+        for alarm in sorted_list:
+            print(f"Alarm level: {alarm.alarm_level}, alarm type: {alarm.alarm_type}")
 
 
     @staticmethod
@@ -54,17 +55,19 @@ class Alarm:
             json_data = Utils.read_alarms_json()
             for key, value in json_data.items():
                 print(pointer, key, value)
-            while True:
-                try:
-                    print("please press C-c or yes to return to main menu")
-                    user_input = input()
-                    if user_input == "yes":
-                        break
-                    else:
-                        print("please write yes or C-c")
+            input('Press any key to continue...')
 
-                except KeyboardInterrupt:
-                    break
+            # while True:
+            #     try:
+            #         print("please press C-c or yes to return to main menu")
+            #         user_input = input()
+            #         if user_input == "yes":
+            #             break
+            #         else:
+            #             print("please write yes or C-c")
+            #
+            #     except KeyboardInterrupt:
+            #         break
         else:
             print("please activate monitor before continue")
 
@@ -89,6 +92,7 @@ class Alarm:
 
     @staticmethod
     def save_json():
+        # IMPORTANT: Could this be implemented with update instead?!
         # TODO: check if json is empty then: create it
         # TODO: make this use the class instead
         Utils.read_alarms_json()

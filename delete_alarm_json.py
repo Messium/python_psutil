@@ -95,8 +95,9 @@ class Delete_alarm():
     @staticmethod
     def save_alarm_json():
         try:
-            json_file_name = "alarms.json"
-            with open(json_file_name, mode="w", encoding="utf-8") as f:
+            # json_file_name = "alarms.json"
+            # json_file_name =
+            with open(Utils.json_file_name(), mode="w", encoding="utf-8") as f:
                 json.dump(json_data, f, indent=4)
         except FileNotFoundError:
             pass
