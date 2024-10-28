@@ -15,6 +15,7 @@ class Delete_alarm():
                     for key in Delete_alarm.keys:
                         print(Utils.pointer(), key)
                     user_input = input("Please input either number or name 1. CPU/2. MEMORY/3. DISK: ")
+                    # TODO: Implement sorting when printing delete options list?
                     if user_input == "CPU" or user_input == "1":
                         # while loop select a list value.
                         # ADDING the keys might be surpless..

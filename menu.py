@@ -4,9 +4,6 @@ from new_alarm import Alarm
 from new_monitor import Monitor
 from utils import Utils
 
-pointer = Utils.pointer()
-get_home_path = Utils.get_home_path()
-
 
 class Menu():
 
@@ -33,10 +30,10 @@ class Menu():
         while True:
             try:
 
-                print(pointer, Utils.welcome_message())
+                print(Utils.pointer(), Utils.welcome_message())
 
                 for key, value in Menu.options.items():
-                    print(pointer, key, value[0])
+                    print(Utils.pointer(), key, value[0])
 
                 user_input = input()
 

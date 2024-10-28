@@ -15,6 +15,7 @@ file_names = toml_data.get("file_names")
 
 class Utils:
 
+    # load toml config or fallback default with return:
     @staticmethod
     def json_file_name():
         json_file_name = file_names.get("json_file_name")
@@ -40,6 +41,8 @@ class Utils:
         else: # toml return None if no value is specified so default to this:
             return ">"
 
+    # End loading toml file
+
     @staticmethod
     def alarms_options():
         options = ["CPU", "MEMORY", "DISK", "save", "return"]  # klassattribut
@@ -48,31 +51,30 @@ class Utils:
         for num, item in enumerate(options, 1):
             print(Utils.pointer(), str(num), str(item))
 
-    @staticmethod
-    def get_home_path():
-        # gets user $home director
-        def get_home_directory_with_expanduser():
-            return os.path.expanduser("~")
-        home_dir = get_home_directory_with_expanduser()
-        return home_dir
+    # Old method not needed
+    # @staticmethod
+    # def get_home_path():
+    #     # gets user $home director
+    #     def get_home_directory_with_expanduser():
+    #         return os.path.expanduser("~")
+    #     home_dir = get_home_directory_with_expanduser()
+    #     return home_dir
 
     @staticmethod
     def read_alarms_json():
         try:
-            json_file_name = "alarms.json"
-            with open(json_file_name, mode="r", encoding="utf-8") as f:
+            with open(Utils.json_file_name(), mode="r", encoding="utf-8") as f:
                 data = json.load(f)
                 print("loading previously configured alarms...")
                 return data
         except FileNotFoundError:
             print("no json monitor file found")
-            Logger.logger_file_not_found(json_file_name)
+            Logger.logger_file_not_found(Utils.json_file_name())
 
     @staticmethod
     def save_alarm_json():
         try:
-            json_file_name = "alarms.json"
-            with open(json_file_name, mode="w", encoding="utf-8") as f:
+            with open(Utils.json_file_name(), mode="w", encoding="utf-8") as f:
                 json.dump(Delete_alarm.data, f)
         except FileNotFoundError:
             pass

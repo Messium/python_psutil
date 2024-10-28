@@ -37,11 +37,13 @@ class Alarm:
 
     @staticmethod
     def sorted_list():
+        # this ain't working because my alarm levels are strings and not
+        # integer thats why they are not sorted??? 🤩
         json_data = Utils.read_alarms_json()
         alarm_list = []
         for key in json_data.keys():
             for value in json_data.get(key):
-                alarm_list.append(Alarm(value, key))
+                alarm_list.append(Alarm(int(value), key))
         sorted_list = sorted(alarm_list, key=lambda alarm: (alarm.alarm_type, alarm.alarm_level))
 
         for alarm in sorted_list:
@@ -69,7 +71,7 @@ class Alarm:
             #     except KeyboardInterrupt:
             #         break
         else:
-            print("please activate monitor before continue")
+            print("Please activate monitor before continue.")
 
     @staticmethod
     # Take a decorator from sort as input?
@@ -108,11 +110,9 @@ class Alarm:
             alarms_dict[f"{y.alarm_type}"].append(f"{y.alarm_level}")
 
         # This will overwrite on every save create a append to alarms.json
-        # TODO: MAKE UTILS file_name for alarms.json
         file_name = Utils.json_file_name()
         with open(file_name, mode="w", encoding="utf-8") as f:
             f.write(json.dumps(alarms_dict, indent=4))
-        # DONE: Create a logg entry for json file created
         Logger.logger_json_file_created(file_name)
 
     @staticmethod
@@ -122,7 +122,6 @@ class Alarm:
                 Utils.alarms_options()
                 user_input = input()
 
-                # DONE: this dosn't deal with text input!
                 if user_input == "1":
                     while True:
                         print("start alarm for", "CPU")
