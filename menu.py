@@ -6,7 +6,6 @@ from new_monitor import Monitor
 from utils import Utils
 from ansi import Ansi
 
-
 class Menu():
 
     options = {
@@ -27,7 +26,8 @@ class Menu():
                 print(Utils.pointer(), Utils.welcome_message())
 
                 for key, value in Menu.options.items():
-                    print(f"{Utils.pointer()} {Ansi.BLUE} {key} {Ansi.END} {value[0]}")
+                    menu_print = f"{Utils.pointer()} {Ansi.RED} {key} {Ansi.END} {value[0]}"
+                    print(menu_print)
 
                 user_input = input()
 
