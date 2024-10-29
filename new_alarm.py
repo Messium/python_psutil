@@ -23,7 +23,7 @@ class Alarm:
 
     alarms = []
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f"Alarm level: {self.alarm_level}, alarm type: {self.alarm_type}"
 
 
@@ -39,7 +39,7 @@ class Alarm:
     def sorted_list():
         # this ain't working because my alarm levels are strings and not
         # integer thats why they are not sorted??? 🤩
-        json_data = Utils.read_alarms_json()
+        json_data = Utils.read_alarms_json() # datatype dict
         alarm_list = []
         for key in json_data.keys():
             for value in json_data.get(key):
@@ -58,31 +58,19 @@ class Alarm:
             for key, value in json_data.items():
                 print(pointer, key, value)
             input('Press any key to continue...')
-
-            # while True:
-            #     try:
-            #         print("please press C-c or yes to return to main menu")
-            #         user_input = input()
-            #         if user_input == "yes":
-            #             break
-            #         else:
-            #             print("please write yes or C-c")
-            #
-            #     except KeyboardInterrupt:
-            #         break
         else:
             print("Please activate monitor before continue.")
 
-    @staticmethod
-    # Take a decorator from sort as input?
-    # get them from json then sort!
-    def print_all():
-        json_data = Utils.read_alarms_json()
-        print(json_data)
-        Alarm.sort()
-        for x in Alarm.alarms:
-            print(x)
-        # Tryck valfri tangent för att gå tillbaka till huvudmeny
+    # @staticmethod
+    # # Take a decorator from sort as input?
+    # # get them from json then sort!
+    # def print_all():
+    #     json_data = Utils.read_alarms_json()
+    #     print(json_data)
+    #     Alarm.sort()
+    #     for x in Alarm.alarms:
+    #         print(x)
+    #     # Tryck valfri tangent för att gå tillbaka till huvudmeny
 
     @staticmethod
     def check_existing():

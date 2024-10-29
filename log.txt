@@ -783,3 +783,131 @@
 28/10/2024 09:42:17 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
 28/10/2024 09:42:17 🥊🥊🥊 👺 Json file with name: test.json has been created.
 28/10/2024 09:42:17 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:48:18 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:48:18 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 09:48:18 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 09:48:18 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 09:48:18 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:48:18 🥊🥊🥊 Monitor started
+28/10/2024 09:48:18 🥊🥊🥊 󰞏 Alarm CPU with value 2 has been reached.
+28/10/2024 09:48:18 🥊🥊🥊 󰞏 Alarm DISK with value 20 has been reached.
+28/10/2024 09:48:18 🥊🥊🥊 󰞏 Alarm MEMORY with value 10 has been reached.
+28/10/2024 09:49:58 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:49:58 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 09:49:58 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 09:49:58 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 09:49:58 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:51:09 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:51:09 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 09:51:09 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 09:51:09 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 09:51:09 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:51:35 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:51:35 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 09:51:35 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 09:51:35 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 09:51:35 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:51:51 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:51:51 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 09:51:51 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 09:51:51 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 09:51:51 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:56:06 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:56:06 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 09:56:06 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 09:56:06 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 09:59:04 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 09:59:04 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 09:59:04 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 09:59:04 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 10:06:38 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 10:06:38 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 10:06:38 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 10:06:38 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 10:07:06 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 10:07:06 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 10:07:06 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 10:07:06 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 10:08:04 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 10:08:04 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 10:08:04 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 10:08:04 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 10:26:24 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 10:26:24 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 10:26:24 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 10:26:24 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 11:32:34 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 11:32:34 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 11:32:34 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 11:32:34 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 15:25:39 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:25:39 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 15:25:39 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 15:25:39 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 15:25:39 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:25:39 🥊🥊🥊 Monitor started
+28/10/2024 15:27:12 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:27:12 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 15:27:12 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 15:27:12 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 15:27:12 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:27:12 🥊🥊🥊 Monitor started
+28/10/2024 15:28:34 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:28:34 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 15:28:34 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 15:28:34 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 15:28:34 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:28:34 🥊🥊🥊 Monitor started
+28/10/2024 15:31:45 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:31:45 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 15:31:45 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 15:31:45 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 15:31:45 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:31:45 🥊🥊🥊 Monitor started
+28/10/2024 15:31:45 🥊🥊🥊 👺 Json file with name: alarms.json has been created.
+28/10/2024 15:25:39 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:39:31 🥊🥊🥊 🌟 logger loaded.
+28/10/2024 15:39:31 🥊🥊🥊 📁 File test.json not found.
+28/10/2024 15:39:31 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+28/10/2024 15:39:31 🥊🥊🥊 👺 Json file with name: test.json has been created.
+28/10/2024 15:39:31 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 10:46:34 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 10:46:34 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 10:46:34 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 10:46:34 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 10:46:34 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 10:53:40 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 10:53:40 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 10:53:40 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 10:53:40 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 10:53:40 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:04:07 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:04:07 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:04:07 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:04:07 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:04:07 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:05:15 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:05:15 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:05:15 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:05:15 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:05:15 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:06:47 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:06:47 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:06:47 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:06:47 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:06:47 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:07:09 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:07:09 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:07:09 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:07:09 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:07:09 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:07:42 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:07:42 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:07:42 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:07:42 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:07:42 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:08:35 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:08:35 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:08:35 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:08:35 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:08:35 🥊🥊🥊 🌟 logger loaded.

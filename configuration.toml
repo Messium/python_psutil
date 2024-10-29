@@ -3,7 +3,7 @@
 [menu]
 pointer = ">"
 welcome_message = "Hello and welcome choose an option:"
-[file_names]
+[json]
 json_file_name = "alarms.json"
 [logger]
 folder_icon = "📁"

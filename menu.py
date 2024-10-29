@@ -1,28 +1,22 @@
+import os
 from delete_alarm_json import Delete_alarm
 from logger import Logger
 from new_alarm import Alarm
 from new_monitor import Monitor
 from utils import Utils
+from ansi import Ansi
 
 
 class Menu():
 
-    # Eftersom klassens state eller objekt inte behövs ändras eller få tillgång
-    # till klassattribut eller andra värden så har jag valt en staticmethod över en classmethod.
-
     options = {
-        # str object made into method not possible unless ?
-        # import foo
-        # bar = getattr(foo, 'bar')
-        # result = bar()
-        # key_index: menu_option, method_call
-        "1": ["Starta övervakning", "asdf"],
-        "2": ["Lista aktiv övervakning", "asdf"],
-        "3": ["Skapa larm", "asdf"],
-        "4": ["Visa larm", "asdf"],
-        "5": ["Starta övervakningsläge", "asdf"],
-        "6": ["delete alarms", "Delete_alarm.menu_delete()"],
-        "7": ["exit", ""]
+        "1": ["Starta övervakning"],
+        "2": ["Lista aktiv övervakning"],
+        "3": ["Skapa larm"],
+        "4": ["Visa larm"],
+        "5": ["Starta övervakningsläge"],
+        "6": ["delete alarms"],
+        "7": ["exit"]
     }
 
     @staticmethod
@@ -33,7 +27,7 @@ class Menu():
                 print(Utils.pointer(), Utils.welcome_message())
 
                 for key, value in Menu.options.items():
-                    print(Utils.pointer(), key, value[0])
+                    print(f"{Utils.pointer()} {Ansi.BLUE} {key} {Ansi.END} {value[0]}")
 
                 user_input = input()
 
@@ -82,7 +76,6 @@ class Menu():
                     #          │   som en siffra mellan 1-100 och matas nonsens in ska    │
                     #          │             användaren få ett felmeddelande.             │
                     #          ╰──────────────────────────────────────────────────────────╯
-                    # Alarms.options_menu()
                     # REVIEW:
                     Alarm.alarm_menu()
 
@@ -96,8 +89,7 @@ class Menu():
                     #          │   tillbaka till huvudmeny Notera att man kan ha flera    │
                     #          │                    larm av samma typ.                    │
                     #          ╰──────────────────────────────────────────────────────────╯
-                    # Alarms.active_alarms()
-                    # REVIEW:
+                    # DONE:
                     Alarm.sorted_list()
 
 
@@ -111,7 +103,6 @@ class Menu():
                     #       │                          valfri knapp                          │
                     #       │                för att återgå till huvudmenyn.                 │
                     #       ╰────────────────────────────────────────────────────────────────╯
-                    # Monitor.monitor_mode()
                     # REVIEW:
                     Monitor.monitor_mode()
                 elif user_input == "6":
@@ -121,7 +112,8 @@ class Menu():
                 elif user_input == "exit" or user_input == "7":
                     break
                 else:
-                    print("bad input")
+                    os.system('clear')
+                    print("Please choose an numbered option between 1-7")
             except KeyboardInterrupt:
                 break
 

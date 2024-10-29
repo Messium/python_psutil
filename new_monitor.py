@@ -8,22 +8,16 @@ json_data = Utils.read_alarms_json()
 
 class Monitor():
     monitor = False
-    update_freq = 1
+    update_freq = 1 # TODO: lägg till
 
     @staticmethod
-    # @classmethod
     def monitor_start():
-        # Check if already started
         if Monitor.monitor:
             print("monitor already started")
-        # cls.monitor = Monitor.monitor
-        # Startar övervakning av CPU användning, minnesanvändning och diskanvändning.
-        # Notera alltså att ingen övervakning ska starta automatiskt vid programstart
         else:
             print("monitor started")
             Monitor.monitor = True
             Logger.logger_write("Monitor started")
-            # return print(Monitor.monitor)
 
     @staticmethod
     def MEMORY():
@@ -39,7 +33,6 @@ class Monitor():
 
     # TODO: compare class monitor_mode
 
-
     @staticmethod
     def run_command(cmd):
         try:
@@ -52,7 +45,6 @@ class Monitor():
     @staticmethod
     def monitor_mode():
         while True:
-
             # print("CPU", CPU())
             # print("DISK", DISK())
             # print("MEMORY", MEMORY())

@@ -9,16 +9,17 @@ with open("configuration.toml", "rb") as f:
     toml_data = tomllib.load(f)
 
 menu_elems = toml_data.get("menu")
-file_names = toml_data.get("file_names")
+json_config = toml_data.get("json")
 
 # HELP: posible unbound variable here aswell
 
 class Utils:
 
-    # load toml config or fallback default with return:
+    # Loading toml config or fallback default with return:
+
     @staticmethod
     def json_file_name():
-        json_file_name = file_names.get("json_file_name")
+        json_file_name = json_config.get("json_file_name")
         if json_file_name:
             return json_file_name
         else:
@@ -45,32 +46,29 @@ class Utils:
 
     @staticmethod
     def alarms_options():
-        options = ["CPU", "MEMORY", "DISK", "save", "return"]  # klassattribut
+        options = ["CPU", "MEMORY", "DISK", "save", "return"]
         message = "Create an alarm for:"
         print(message)
         for num, item in enumerate(options, 1):
             print(Utils.pointer(), str(num), str(item))
 
-    # Old method not needed
-    # @staticmethod
-    # def get_home_path():
-    #     # gets user $home director
-    #     def get_home_directory_with_expanduser():
-    #         return os.path.expanduser("~")
-    #     home_dir = get_home_directory_with_expanduser()
-    #     return home_dir
-
     @staticmethod
     def read_alarms_json():
         try:
             with open(Utils.json_file_name(), mode="r", encoding="utf-8") as f:
+                # TODO: can you save and load json with integer values or are
+                # json files always str?
+                # How to make the json data integers the alarm_levels.
                 data = json.load(f)
-                print("loading previously configured alarms...")
+                print("Loading previously configured alarms...")
                 return data
         except FileNotFoundError:
-            print("no json monitor file found")
+            print("No json alarm file found")
             Logger.logger_file_not_found(Utils.json_file_name())
 
+    # Merge with the other save_alarm_json make it take a data parameter like
+    # this: def save_alarm_json(data): so I can reduce the amount of methods
+    # from two to one the read_alarms_json could be merged somehow?
     @staticmethod
     def save_alarm_json():
         try:
@@ -78,18 +76,3 @@ class Utils:
                 json.dump(Delete_alarm.data, f)
         except FileNotFoundError:
             pass
-
-
-    # psutil statistics
-
-    @classmethod
-    def get_disk_usage(cls):
-        return psutil.disk_usage(Utils.get_home_path())[3]  # % return
-
-    @classmethod
-    def cpu_percent(cls):
-        return psutil.cpu_percent()
-
-    @classmethod
-    def memory_usage(cls):
-        return psutil.virtual_memory()
