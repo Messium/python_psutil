@@ -999,3 +999,18 @@
 29/10/2024 11:52:34 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
 29/10/2024 11:52:34 🥊🥊🥊 👺 Json file with name: test.json has been created.
 29/10/2024 11:52:34 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:57:40 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:57:40 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:57:40 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:57:40 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:57:40 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:59:14 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:59:14 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 11:59:14 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 11:59:14 🥊🥊🥊 👺 Json file with name: test.json has been created.
+29/10/2024 11:59:14 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 11:59:14 🥊🥊🥊 Monitor started
+29/10/2024 12:04:38 🥊🥊🥊 🌟 logger loaded.
+29/10/2024 12:04:38 🥊🥊🥊 📁 File test.json not found.
+29/10/2024 12:04:38 🥊🥊🥊 󰞏 Alarm CPU TEST with value 50 has been reached.
+29/10/2024 12:04:38 🥊🥊🥊 👺 Json file with name: test.json has been created.

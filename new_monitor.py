@@ -10,6 +10,14 @@ class Monitor():
     monitor = False
     update_freq = 1 # TODO: lägg till
 
+    # disk =
+    # cpu =
+    # ram =
+    ram_used_gb = round(Monitor.MEMORY().used / (1024 ** 3),1)
+    ram_total_gb = round(Monitor.MEMORY().total / (1024 ** 3))
+    disk_used_gb = round(Montior.DISK().used / (1024 ** 3))
+    disk_total_gb = round(Montior.DISK().total / (1024 ** 3))
+
     @staticmethod
     def monitor_start():
         if Monitor.monitor:
