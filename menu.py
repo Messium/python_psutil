@@ -22,8 +22,7 @@ class Menu():
     def menu_startup():
         while True:
             try:
-
-                print(Utils.pointer(), Utils.welcome_message())
+                print(Utils.welcome_message())
 
                 for key, value in Menu.options.items():
                     menu_print = f"{Utils.pointer()} {Ansi.RED} {key} {Ansi.END} {value[0]}"
@@ -38,7 +37,6 @@ class Menu():
                     #          │     att ingen övervakning ska starta automatiskt vid     │
                     #          │                      programstart.                       │
                     #          ╰──────────────────────────────────────────────────────────╯
-                    # DONE:
                     Monitor.monitor_start()
 
 
@@ -56,7 +54,6 @@ class Menu():
                     #          │      tillbaka till huvudmeny Efter detta visas åter      │
                     #          │                huvudmenyn för användaren.                │
                     #          ╰──────────────────────────────────────────────────────────╯
-                    # DONE:
                     Alarm.active_alarms()
 
 
@@ -76,7 +73,6 @@ class Menu():
                     #          │   som en siffra mellan 1-100 och matas nonsens in ska    │
                     #          │             användaren få ett felmeddelande.             │
                     #          ╰──────────────────────────────────────────────────────────╯
-                    # REVIEW:
                     Alarm.alarm_menu()
 
                 elif user_input == "4":
@@ -89,7 +85,6 @@ class Menu():
                     #          │   tillbaka till huvudmeny Notera att man kan ha flera    │
                     #          │                    larm av samma typ.                    │
                     #          ╰──────────────────────────────────────────────────────────╯
-                    # DONE:
                     Alarm.sorted_list()
 
 
@@ -103,11 +98,9 @@ class Menu():
                     #       │                          valfri knapp                          │
                     #       │                för att återgå till huvudmenyn.                 │
                     #       ╰────────────────────────────────────────────────────────────────╯
-                    # REVIEW:
                     Monitor.monitor_mode()
                 elif user_input == "6":
                     Delete_alarm.menu_delete()
-                    # DONE:
 
                 elif user_input == "exit" or user_input == "7":
                     break

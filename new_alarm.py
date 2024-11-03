@@ -1,5 +1,4 @@
 import json
-
 from logger import Logger
 from new_monitor import Monitor
 from utils import Utils
@@ -37,8 +36,6 @@ class Alarm:
 
     @staticmethod
     def sorted_list():
-        # this ain't working because my alarm levels are strings and not
-        # integer thats why they are not sorted??? 🤩
         json_data = Utils.read_alarms_json() # datatype dict
         alarm_list = []
         for key in json_data.keys():
@@ -48,18 +45,32 @@ class Alarm:
 
         for alarm in sorted_list:
             print(f"Alarm level: {alarm.alarm_level}, alarm type: {alarm.alarm_type}")
+        while True:
+            try:
+                input('Press C-c to return to menu...')
+            except KeyboardInterrupt:
+                break
 
 
     @staticmethod
     def active_alarms():
         if Monitor.monitor:
-            print("Montior active can proceed")
-            json_data = Utils.read_alarms_json()
-            for key, value in json_data.items():
-                print(pointer, key, value)
+            print(f"Ram usage: {Monitor.ram_used_gb} GB out of {Monitor.ram_total_gb} GB\n")
+            print(f"Disk usage: {Monitor.disk_used_gb} GB out of {Monitor.disk_total_gb} GB\n")
+            print(f"CPU usage: {Monitor.CPU()} %\n")
             input('Press any key to continue...')
         else:
-            print("Please activate monitor before continue.")
+            print("please activate monitor first")
+
+
+        # if Monitor.monitor:
+        #     print("Montior active can proceed")
+        #     json_data = Utils.read_alarms_json()
+        #     for key, value in json_data.items():
+        #         print(pointer, key, value)
+        #     input('Press any key to continue...')
+        # else:
+        #     print("Please activate monitor before continue.")
 
     # @staticmethod
     # # Take a decorator from sort as input?

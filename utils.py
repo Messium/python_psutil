@@ -1,7 +1,5 @@
-import os
 import json
-
-import psutil
+from ansi import Ansi
 from logger import Logger
 import tomllib
 
@@ -50,7 +48,9 @@ class Utils:
         message = "Create an alarm for:"
         print(message)
         for num, item in enumerate(options, 1):
-            print(Utils.pointer(), str(num), str(item))
+            menu_print = f"{Utils.pointer()} {Ansi.RED} {num} {Ansi.END} {item}"
+            print(menu_print)
+            # print(Utils.pointer(), {Ansi.RED, num, Ansi.END}, str(item))
 
     @staticmethod
     def read_alarms_json():

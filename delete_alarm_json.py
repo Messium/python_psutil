@@ -1,5 +1,5 @@
 import json
-
+from ansi import Ansi
 from utils import Utils
 
 
@@ -12,10 +12,11 @@ class Delete_alarm():
     def menu_delete():
             while True:
                 try:
-                    user_input = input(f"Please input either number or name: \n {Utils.pointer()} 1. CPU \n {Utils.pointer()} 2. MEMORY \n {Utils.pointer()} 3. DISK \n ")
-                    # user_input = input()
-                    # for key in Delete_alarm.keys:
-                    #     print(Utils.pointer(), key)
+                    options = ["CPU", "MEMORY", "DISK", "return"]
+                    for num, key in enumerate(options, start=1):
+                        menu_print = f"{Utils.pointer()} {Ansi.RED} {num} {Ansi.END} {key}"
+                        print(menu_print)
+                    user_input = input()
                     # TODO: Implement sorting when printing delete options list?
                     if user_input == "CPU" or user_input == "1":
                         while True:
@@ -76,11 +77,12 @@ class Delete_alarm():
                                         Delete_alarm.save_alarm_json()
                                         break
 
-
                                     if len(json_data.get("DISK")) == 0:
                                         break
                             except KeyboardInterrupt:
                                 break
+                    if user_input == "return" or user_input == "4":
+                            break
 
                 except KeyboardInterrupt:
                     break
